@@ -18,7 +18,12 @@ class AuthService implements AuthProviderBase {
   Future<Response> signUp({
     required SingUp singUpInfo,
   }) async {
-    String? fcmToken = await FirebaseMessaging.instance.getToken();
+    String? fcmToken;
+    try {
+      fcmToken = await FirebaseMessaging.instance.getToken();
+    } catch (e) {
+      print("Failed to get FCM token: \$e");
+    }
     final response = await ref.read(apiClientProvider).post(
       AppConstants.registrationUrl,
       data: {
@@ -46,7 +51,12 @@ class AuthService implements AuthProviderBase {
   @override
   Future<Response> login(
       {required String phone, required String password}) async {
-    String? fcmToken = await FirebaseMessaging.instance.getToken();
+    String? fcmToken;
+    try {
+      fcmToken = await FirebaseMessaging.instance.getToken();
+    } catch (e) {
+      print("Failed to get FCM token: \$e");
+    }
     final response = await ref.read(apiClientProvider).post(
       AppConstants.loginUrl,
       data: {

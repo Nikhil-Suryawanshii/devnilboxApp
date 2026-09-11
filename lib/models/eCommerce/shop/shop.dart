@@ -76,7 +76,7 @@ class Shop {
       rating: map['rating'].toDouble() as double,
       shopStatus: map['shop_status'] as String,
       totalReviews: map['total_reviews'] as String,
-      isFollowed: map['is_followed'] as bool
+      isFollowed: map['is_followed'] ?? false
     );
   }
 

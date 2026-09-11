@@ -508,11 +508,12 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                                                     passwordController.text,
                                               )
                                               .then((response) {
-                                            ref
-                                                .read(addressControllerProvider
-                                                    .notifier)
-                                                .getAddress();
                                             if (response.isSuccess) {
+                                              ref
+                                                  .read(addressControllerProvider
+                                                      .notifier)
+                                                  .getAddress();
+                                              if (!context.mounted) return;
                                               context.nav.pushNamed(
                                                   Routes.getCoreRouteName(
                                                       AppConstants
