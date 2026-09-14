@@ -269,7 +269,9 @@ class GetTotalUnreadMessagesController extends StateNotifier<AsyncValue<int?>> {
           await ref.read(messageServiceProvider).getTotalUnreadMessages();
       final data = response.data["data"];
       final totalUnreadMessages = data['unread_messages'] ?? 0;
-      state = AsyncValue.data(totalUnreadMessages);
+      if (mounted) {
+        state = AsyncValue.data(totalUnreadMessages);
+      }
     } catch (error, stk) {
       debugPrint(stk.toString());
       debugPrint(error.toString());

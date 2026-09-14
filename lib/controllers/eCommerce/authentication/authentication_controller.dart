@@ -527,6 +527,8 @@ class AuthController extends StateNotifier<bool> {
       // Handle successful login (200 or 201)
       if (response.statusCode == 200 || response.statusCode == 201) {
         final Map<String, dynamic> responseData = response.data;
+        debugPrint("==== LOGIN API RESPONSE ====\n$responseData\n==========================");
+        
         final String message = responseData['message'] ?? "Login Successful";
 
         // Access the nested data object

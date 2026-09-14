@@ -18,6 +18,7 @@
 *.iws
 .idea/
 
+
 # The .vscode folder contains barebones workspace settings, so it's best to ignore it.
 .vscode/
 
@@ -29,6 +30,7 @@
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
+mdFiles/
 /build/
 
 # Symbolication related

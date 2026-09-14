@@ -636,12 +636,12 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                             textColor: Colors.black,
                             onTap: () async {
                               // 1. Show Loading
-                              // showDialog(
-                              //   context: context,
-                              //   barrierDismissible: false,
-                              //   builder: (context) => const Center(
-                              //       child: CircularProgressIndicator()),
-                              // );
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) => const Center(
+                                    child: CircularProgressIndicator()),
+                              );
 
                               try {
                                 // 2. PART A: Google Sign-In (Client Side)
@@ -703,13 +703,15 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                                   if (context.mounted) Navigator.pop(context);
                                 }
                               } catch (e) {
-                                if (context.mounted) Navigator.pop(context);
-                                debugPrint("Login Error: $e");
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text("An error occurred: $e"),
-                                      backgroundColor: Colors.red),
-                                );
+                                if (context.mounted) {
+                                  Navigator.pop(context);
+                                  debugPrint("Login Error: $e");
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("An error occurred: $e"),
+                                        backgroundColor: Colors.red),
+                                  );
+                                }
                               }
                             },
                           ),
@@ -790,13 +792,15 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                                   if (context.mounted) Navigator.pop(context);
                                 }
                               } catch (e) {
-                                if (context.mounted) Navigator.pop(context);
-                                debugPrint("Login Error: $e");
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                      content: Text("An error occurred: $e"),
-                                      backgroundColor: Colors.red),
-                                );
+                                if (context.mounted) {
+                                  Navigator.pop(context);
+                                  debugPrint("Login Error: $e");
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text("An error occurred: $e"),
+                                        backgroundColor: Colors.red),
+                                  );
+                                }
                               }
                             },
                           ),
