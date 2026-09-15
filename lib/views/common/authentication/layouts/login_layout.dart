@@ -375,6 +375,7 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        backgroundColor: Colors.black,
         resizeToAvoidBottomInset: false,
         // 1. STACK FOR BACKGROUND IMAGE
         body: Stack(
@@ -418,10 +419,11 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
             ),
 
             /// 📝 CONTENT
-            SafeArea(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: SingleChildScrollView(
+            Positioned.fill(
+              child: SafeArea(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: SingleChildScrollView(
                   child: FormBuilder(
                     key: formKey,
                     child: Padding(
@@ -880,6 +882,7 @@ class _LoginLayoutState extends ConsumerState<LoginLayout> {
                   ),
                 ),
               ),
+            ),
             ),
           ],
         ),

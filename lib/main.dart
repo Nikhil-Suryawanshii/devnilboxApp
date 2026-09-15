@@ -260,20 +260,7 @@ class MyApp extends StatelessWidget {
                   onGenerateRoute: generatedRoutes,
                   initialRoute: Routes.splash,
                   builder: (context, child) {
-                    // add safety wrapper
-                    return Column(
-                      children: [
-                        Expanded(
-                          child: child ?? const SplashLayout(),
-                        ),
-                        Container(
-                          color: isDark
-                              ? EcommerceAppColor.black
-                              : EcommerceAppColor.white,
-                          height: MediaQuery.of(context).padding.bottom,
-                        )
-                      ],
-                    );
+                    return child ?? const SplashLayout();
                   },
                 ),
               );
